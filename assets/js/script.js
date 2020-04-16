@@ -174,6 +174,12 @@ $("#task-form-modal").on("show.bs.modal", function () {
   $("#modalTaskDescription, #modalDueDate").val("");
 });
 
+setInterval(function () {
+  $(".card .list-group-item").each(function (el) {
+    auditTask(el);
+  });
+}, (1000 * 60) * 30);
+
 // modal is fully visible
 $("#task-form-modal").on("shown.bs.modal", function () {
   // highlight textarea
@@ -300,3 +306,4 @@ $("#modalDueDate").datepicker({
 
 // load tasks for the first time
 loadTasks();
+
